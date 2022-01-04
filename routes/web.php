@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\TestControler;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\etudiantController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+ //Route::get('/Home', function(){
+  //  return view('Home');
+//});
+Route::get('/tp', function(){
+    return view('tp/from');
+});
+Route::get('/', [etudiantController::class,'create']);
+Route::post('/ajouteleve', [etudiantController::class,'store'])->name('ajouter');
+Route::get('/index', [etudiantController::class,'index']);
+
+Route::get('/tazanou', function(){
+    return view('tazanou/from');
 });
